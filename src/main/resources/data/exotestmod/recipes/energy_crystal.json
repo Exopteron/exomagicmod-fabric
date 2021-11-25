@@ -14,7 +14,7 @@
             "item": "exotestmod:magicium_gem"
         },
         "d": {
-            "tag": "minecraft:diamond"
+            "item": "minecraft:diamond"
         }
     },
     "result": {

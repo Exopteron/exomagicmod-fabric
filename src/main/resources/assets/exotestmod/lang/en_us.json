@@ -9,5 +9,6 @@
     "block.exotestmod.magicium_ore": "Magicium Ore",
     "itemGroup.exotestmod.general": "Exo's Magic Mod",
     "category.exotestmod.keybinds": "Exo's Magic Mod",
-    "key.exotestmod.switchspell": "Switch spell"
+    "key.exotestmod.switchspell": "Switch spell",
+    "key.exotestmod.showtooltip": "Show advanced tooltip"
 }

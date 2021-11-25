@@ -10,6 +10,8 @@ import net.minecraft.block.OreBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Settings;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.registry.Registry;
 
 public class MagiciumSetup {
@@ -22,7 +24,7 @@ public class MagiciumSetup {
         Settings settings = new Item.Settings();
         settings.maxCount(64);
         settings.group(TestMod.CREATIVE_TAB);
-        MAGICIUM_GEM = new Item(settings);
+        MAGICIUM_GEM = new TooltippableItem(settings).setExtraInfo(Text.of("A gem of pure magicium.").copy().formatted(Formatting.DARK_GRAY));
         Registry.register(Registry.ITEM, "exotestmod:magicium_gem", MAGICIUM_GEM);
 
         FabricBlockSettings blockSettings = FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK);

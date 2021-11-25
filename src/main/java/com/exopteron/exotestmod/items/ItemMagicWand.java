@@ -30,7 +30,7 @@ import net.minecraft.world.explosion.Explosion.DestructionType;
 
 
 
-public class ItemMagicWand extends Item {
+public class ItemMagicWand extends TooltippableItem {
 
     public ItemMagicWand(Settings settings) {
         super(settings);
@@ -101,5 +101,9 @@ public class ItemMagicWand extends Item {
                     player.getTrackedPosition().z, new ItemStack(ItemSetup.NETHERITE_STICK), 0D, 0D, 0D));
             player.sendToolBreakStatus(hand);
         });
+    }
+    @Override
+    public Text extraTooltipData() {
+        return Text.of("It's a magic wand. It's pretty cool.").copy().formatted(Formatting.DARK_GRAY);
     }
 }

@@ -4,6 +4,8 @@ import com.exopteron.exotestmod.TestMod;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Settings;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.registry.Registry;
 
 public class ItemSetup {
@@ -22,7 +24,7 @@ public class ItemSetup {
         settings = new Item.Settings();
         settings.fireproof();
         settings.group(TestMod.CREATIVE_TAB);
-        NETHERITE_STICK = new Item(settings);
+        NETHERITE_STICK = new TooltippableItem(settings).setExtraInfo(Text.of("A stick. But out of netherite.").copy().formatted(Formatting.DARK_GRAY));
         Registry.register(Registry.ITEM, "exotestmod:netherite_stick", NETHERITE_STICK);
     }   
 }

@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
-public class ItemEnergyCrystal extends Item {
+public class ItemEnergyCrystal extends TooltippableItem {
 
     public ItemEnergyCrystal(Settings settings) {
         super(settings);
@@ -24,5 +24,9 @@ public class ItemEnergyCrystal extends Item {
     public static void setCrystalDamage(ItemStack crystal, int damage) {
         NbtCompound tag = crystal.getOrCreateNbt();
         tag.putInt("CrystalDamage", damage);
+    }
+    @Override
+    public Text extraTooltipData() {
+        return Text.of("Doesn't run on electricity!").copy().formatted(Formatting.DARK_GRAY);
     }
 }
