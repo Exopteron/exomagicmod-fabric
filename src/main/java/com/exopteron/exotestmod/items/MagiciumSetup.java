@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.Settings;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class MagiciumSetup {
@@ -25,24 +26,24 @@ public class MagiciumSetup {
         settings.maxCount(64);
         settings.group(TestMod.CREATIVE_TAB);
         MAGICIUM_GEM = new TooltippableItem(settings).setExtraInfo(Text.of("A gem of pure magicium.").copy().formatted(Formatting.DARK_GRAY));
-        Registry.register(Registry.ITEM, "exotestmod:magicium_gem", MAGICIUM_GEM);
+        Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_gem"), MAGICIUM_GEM);
 
         FabricBlockSettings blockSettings = FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK);
         MAGICIUM_BLOCK = new Block(blockSettings);
-        Registry.register(Registry.BLOCK, "exotestmod:magicium_block", MAGICIUM_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(TestMod.MODID, "magicium_block"), MAGICIUM_BLOCK);
         
         settings = new Item.Settings();
         settings.group(TestMod.CREATIVE_TAB);
         MAGICIUM_BLOCK_ITEM = new BlockItem(MAGICIUM_BLOCK, settings);
-        Registry.register(Registry.ITEM, "exotestmod:magicium_block", MAGICIUM_BLOCK_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_block"), MAGICIUM_BLOCK_ITEM);
 
         blockSettings = FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE);
         MAGICIUM_ORE = new OreBlock(blockSettings);
-        Registry.register(Registry.BLOCK, "exotestmod:magicium_ore", MAGICIUM_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(TestMod.MODID, "magicium_ore"), MAGICIUM_ORE);
 
         settings = new Item.Settings();
         settings.group(TestMod.CREATIVE_TAB);
         MAGICIUM_ORE_ITEM = new BlockItem(MAGICIUM_ORE, settings);
-        Registry.register(Registry.ITEM, "exotestmod:magicium_ore", MAGICIUM_ORE_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_ore"), MAGICIUM_ORE_ITEM);
     }
 }
