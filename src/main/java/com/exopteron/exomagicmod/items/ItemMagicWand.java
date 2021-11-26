@@ -1,5 +1,6 @@
 package com.exopteron.exomagicmod.items;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -16,12 +17,14 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -60,12 +63,12 @@ public class ItemMagicWand extends TooltippableItem {
             if (doRebound) {
                 Utils.awardAdvancement(new Identifier(TestMod.MODID, "wand_rebound"), (ServerPlayerEntity) user);
                 user.sendMessage(new TranslatableText("exomagicmod.spellrebound").formatted(Formatting.ITALIC).formatted(Formatting.GRAY), false);
-                damageWand(i, s.getSpellDurabilityCost(), user, hand);
+                damageWand(i, s.getSpellCastDurabilityCost(), user, hand);
                 s.rebound(world, user, hand, i);
             } else {
                 Utils.awardAdvancement(new Identifier(TestMod.MODID, "cast_spell"), (ServerPlayerEntity) user);
                 int cooldownTicks = s.cast(world, user, hand, i);
-                damageWand(i, s.getSpellDurabilityCost(), user, hand);
+                damageWand(i, s.getSpellCastDurabilityCost(), user, hand);
                 user.getItemCooldownManager().set(this, cooldownTicks);
             }
         } else {
@@ -104,7 +107,38 @@ public class ItemMagicWand extends TooltippableItem {
         });
     }
     @Override
-    public Text extraTooltipData() {
-        return Text.of("It's a magic wand. It's pretty cool.").copy().formatted(Formatting.GRAY);
+    public List<Text> extraTooltipData() {
+        ArrayList<Text> list = new ArrayList<>();
+        list.add(Text.of("It's a magic wand. It's pretty cool.").copy().formatted(Formatting.GRAY));
+        return list;
+    }
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        World world = context.getWorld();
+        PlayerEntity user = context.getPlayer();
+        Hand hand = context.getHand();
+        ItemStack i = context.getStack();
+        String spell = MagicWandSpells.spellFromItemStack(i);
+        boolean doRebound = shouldRebound(i);
+        if (!world.isClient) {
+            IWandSpell s = SpellRegistry.INSTANCE.spellRegistry.get(spell).getA();
+            if (s == null) {
+                return ActionResult.FAIL;
+            }
+            if (doRebound) {
+                Utils.awardAdvancement(new Identifier(TestMod.MODID, "wand_rebound"), (ServerPlayerEntity) user);
+                user.sendMessage(new TranslatableText("exomagicmod.spellrebound").formatted(Formatting.ITALIC).formatted(Formatting.GRAY), false);
+                damageWand(i, s.getSpellBlockDurabilityCost(), user, hand);
+                s.rebound(world, user, hand, i);
+                return ActionResult.FAIL;
+            } else {
+                Utils.awardAdvancement(new Identifier(TestMod.MODID, "cast_spell"), (ServerPlayerEntity) user);
+                int cooldownTicks = s.useOnBlock(context);
+                damageWand(i, s.getSpellBlockDurabilityCost(), user, hand);
+                user.getItemCooldownManager().set(this, cooldownTicks);
+                return ActionResult.SUCCESS;
+            }
+        }
+        return ActionResult.SUCCESS;
     }
 }

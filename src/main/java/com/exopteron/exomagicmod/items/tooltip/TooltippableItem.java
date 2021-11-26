@@ -1,6 +1,7 @@
 package com.exopteron.exomagicmod.items.tooltip;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.exopteron.exomagicmod.client.keybind.KeybindSetup;
@@ -20,13 +21,13 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 public class TooltippableItem extends Item {
-    private Text extraInfo = Text.of("");
+    private List<Text> extraInfo = new ArrayList<>();
     public TooltippableItem(Settings settings) {
         super(settings);
     }
     public TooltippableItem(Settings settings, Text info) {
         super(settings);
-        this.extraInfo = info.copy().formatted(Formatting.GRAY);
+        this.extraInfo.add(info.copy().formatted(Formatting.GRAY));
     }
 
     @Override
@@ -34,11 +35,11 @@ public class TooltippableItem extends Item {
         toolTip(tooltip, this.extraTooltipData());
         super.appendTooltip(stack, world, tooltip, context);
     }
-    public static void toolTip(List<Text> tooltip, Text extraData) {
+    public static void toolTip(List<Text> tooltip, List<Text> extraData) {
         try {
             int keyCode = ((MixinKeybinding) KeybindSetup.showToolTip).getBoundKey().getCode();
             if (GLFW.glfwGetKey(MinecraftClient.getInstance().getWindow().getHandle(), keyCode) == GLFW.GLFW_PRESS) {
-                tooltip.add(extraData);
+                tooltip.addAll(extraData);
             } else {
                 tooltip.add(Text.of("Press ").copy().formatted(Formatting.DARK_GRAY)
                         .append(Text.of("[" + new TranslatableText(KeybindSetup.showToolTip.getBoundKeyTranslationKey()).getString() + "]").copy().formatted(Formatting.GRAY)
@@ -48,11 +49,11 @@ public class TooltippableItem extends Item {
             e.printStackTrace();
         }
     }
-    public TooltippableItem setExtraInfo(Text info) {
-        this.extraInfo = info;
+    public TooltippableItem addExtraInfo(Text info) {
+        this.extraInfo.add(info.copy().formatted(Formatting.GRAY));
         return this;
     }
-    public Text extraTooltipData() {
+    public List<Text> extraTooltipData() {
         return this.extraInfo;
     }
 }

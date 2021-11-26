@@ -1,5 +1,6 @@
 package com.exopteron.exomagicmod.items;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.exopteron.exomagicmod.items.tooltip.TooltippableItem;
@@ -28,7 +29,10 @@ public class ItemEnergyCrystal extends TooltippableItem {
         tag.putInt("CrystalDamage", damage);
     }
     @Override
-    public Text extraTooltipData() {
-        return Text.of("Doesn't run on electricity!").copy().formatted(Formatting.GRAY);
+    public List<Text> extraTooltipData() {
+        List<Text> list = new ArrayList<>();
+        list.add(Text.of("Doesn't run on electricity!").copy().formatted(Formatting.GRAY));
+        list.add(Text.of("Can be used with a netherite stick to create a magic wand.").copy().formatted(Formatting.GRAY));
+        return list;
     }
 }

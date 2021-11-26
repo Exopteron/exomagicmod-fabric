@@ -37,6 +37,7 @@ public class MagicWandSpells {
             this.registerSpell("POISONCLOUD", "Poison Cloud", new PoisonCloudSpell());
             this.registerSpell("THROWNTORCH", "Torch Thrower", new ThrownTorchSpell());
             this.registerSpell("PEARLSPELL", "Ender Pearl", new PearlSpell());
+            this.registerSpell("FLINTSTEELSPELL", "Flint and Steel", new FlintSpell());
             /*             this.registerSpell("FIREBALL", new FireballSpell());
             this.registerSpell("ICEBALL", new IceballSpell());
             this.registerSpell("POISONCLOUD", new PoisonCloudSpell()); */

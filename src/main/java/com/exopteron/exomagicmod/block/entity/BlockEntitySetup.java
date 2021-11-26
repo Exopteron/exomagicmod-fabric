@@ -12,6 +12,6 @@ import net.minecraft.util.registry.Registry;
 public class BlockEntitySetup {
     public static final BlockEntityType<BlockEntityCharger> CHARGER_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(BlockEntityCharger::new, BlockSetup.CHARGER_BLOCK).build();
     public static void init() {
-        Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(TestMod.MODID, "charger_block_entity"), CHARGER_BLOCK_ENTITY);
+        Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(TestMod.MODID, "crystal_charger_block_entity"), CHARGER_BLOCK_ENTITY);
     }
 }

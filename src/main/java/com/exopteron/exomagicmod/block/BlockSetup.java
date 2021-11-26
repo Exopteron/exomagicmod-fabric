@@ -13,6 +13,6 @@ public class BlockSetup {
     public static final Block CHARGER_BLOCK = new BlockCharger(FabricBlockSettings.of(Material.STONE));
     public static void init() {
         BlockEntitySetup.init();
-        Registry.register(Registry.BLOCK, new Identifier(TestMod.MODID, "charger_block"), CHARGER_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(TestMod.MODID, "crystal_charger_block"), CHARGER_BLOCK);
     }
 }

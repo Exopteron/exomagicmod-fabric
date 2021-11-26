@@ -6,28 +6,28 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
+import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion.DestructionType;
 
 
-public class PearlSpell implements IWandSpell {
+public class FlintSpell implements IWandSpell {
     @Override
-    public int cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
-        EnderPearlEntity snowball = new EnderPearlEntity(world, player);
-        snowball.setProperties(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
-        world.spawnEntity(snowball);
-        return 25;
+    public int useOnBlock(ItemUsageContext ctx) {
+        ctx.getStack().setDamage(ctx.getStack().getDamage() - 1);
+        Items.FLINT_AND_STEEL.useOnBlock(ctx);
+        return 5;
     }
     @Override
     public void rebound(World world, PlayerEntity player, Hand hand, ItemStack wand) {
-        player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 15 * 20, 255));
-        player.damage(DamageSource.MAGIC, 6.0F);
+        player.setOnFireFor(5);
     }
     @Override
     public int getSpellCastDurabilityCost() {
-        return 5;
+        return 0;
     }
 }

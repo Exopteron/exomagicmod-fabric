@@ -25,7 +25,7 @@ public class ItemSetup {
         ENERGY_CRYSTAL = new ItemEnergyCrystal(settings);
         Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "energy_crystal"), ENERGY_CRYSTAL);
         Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magic_wand"), MAGIC_WAND);
-        Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "charger_block"), CHARGER_BLOCK_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "crystal_charger_block"), CHARGER_BLOCK_ITEM);
         settings = new Item.Settings();
         settings.fireproof();
         settings.group(TestMod.CREATIVE_TAB);

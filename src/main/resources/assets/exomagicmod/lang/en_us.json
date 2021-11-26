@@ -12,5 +12,5 @@
     "key.exomagicmod.switchspell": "Switch spell",
     "key.exomagicmod.showtooltip": "Show advanced tooltip",
     "item.exomagicmod.magicium_charging": "Charging Magicium Crystal",
-    "block.exomagicmod.charger_block": "Crystal Charger"
+    "block.exomagicmod.crystal_charger_block": "Crystal Charger"
 }

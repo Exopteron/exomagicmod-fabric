@@ -28,7 +28,7 @@ public class MagiciumSetup {
         Settings settings = new Item.Settings();
         settings.maxCount(64);
         settings.group(TestMod.CREATIVE_TAB);
-        MAGICIUM_GEM = new TooltippableItem(settings, Text.of("A gem of pure magicium."));
+        MAGICIUM_GEM = new TooltippableItem(settings, Text.of("A gem of pure magicium.")).addExtraInfo(Text.of("Can be put in a Crystal Charger to create an Energy Crystal."));
         Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_gem"), MAGICIUM_GEM);
         Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_charging"), MAGICIUM_CHARGING_GEM);
         FabricBlockSettings blockSettings = FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK);

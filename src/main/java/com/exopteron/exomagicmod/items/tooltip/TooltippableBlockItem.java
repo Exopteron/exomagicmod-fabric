@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import java.lang.reflect.Field;
 import java.text.Format;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.exopteron.exomagicmod.client.keybind.KeybindSetup;
@@ -21,14 +22,14 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 public class TooltippableBlockItem extends BlockItem {
-    private Text extraInfo = Text.of("");
+    private List<Text> extraInfo = new ArrayList<>();
     public TooltippableBlockItem(Block block, Settings settings) {
         super(block, settings);
         //TODO Auto-generated constructor stub
     }
     public TooltippableBlockItem(Block block, Settings settings, Text info) {
         super(block, settings);
-        this.extraInfo = info.copy().formatted(Formatting.GRAY);
+        this.extraInfo.add(info.copy().formatted(Formatting.GRAY));
         //TODO Auto-generated constructor stub
     }
     @Override
@@ -36,11 +37,11 @@ public class TooltippableBlockItem extends BlockItem {
         TooltippableItem.toolTip(tooltip, this.extraTooltipData());
         super.appendTooltip(stack, world, tooltip, context);
     }
-    public TooltippableBlockItem setExtraInfo(Text info) {
-        this.extraInfo = info;
+    public TooltippableBlockItem addExtraInfo(Text info) {
+        this.extraInfo.add(info);
         return this;
     }
-    public Text extraTooltipData() {
+    public List<Text> extraTooltipData() {
         return this.extraInfo;
     }
 }

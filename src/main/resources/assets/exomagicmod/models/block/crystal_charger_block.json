@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "exomagicmod:block/charger_block"
+        "all": "exomagicmod:block/crystal_charger_block"
     }
 }

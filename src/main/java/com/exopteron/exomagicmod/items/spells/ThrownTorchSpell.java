@@ -26,7 +26,7 @@ public class ThrownTorchSpell implements IWandSpell {
         player.damage(DamageSource.MAGIC, 6.0F);
     }
     @Override
-    public int getSpellDurabilityCost() {
+    public int getSpellCastDurabilityCost() {
         return 5;
     }
 }
