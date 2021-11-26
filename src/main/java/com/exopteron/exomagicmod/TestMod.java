@@ -9,6 +9,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
+import com.exopteron.exomagicmod.blocks.BlockSetup;
 import com.exopteron.exomagicmod.callbacks.CallbackSetup;
 import com.exopteron.exomagicmod.entities.EntitySetup;
 import com.exopteron.exomagicmod.items.ItemSetup;
@@ -36,6 +37,7 @@ public class TestMod implements ModInitializer {
 		NetworkSetup.init();
 		EntitySetup.init();
 		CallbackSetup.init();
+		BlockSetup.init();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.

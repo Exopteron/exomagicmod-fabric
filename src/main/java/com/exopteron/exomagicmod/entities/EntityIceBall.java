@@ -2,6 +2,7 @@ package com.exopteron.exomagicmod.entities;
 
 import java.util.ArrayList;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.entity.Entity;
@@ -46,6 +47,7 @@ public class EntityIceBall extends ThrownItemEntity {
             e.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 15 * 20, 255));
             entity.damage(DamageSource.MAGIC, 6.0F);
         }
+        //this.world.getBlockState(new BlockPos(0, 0, 0)).getBlock().toString();
         super.onEntityHit(hitResult);
     }
 

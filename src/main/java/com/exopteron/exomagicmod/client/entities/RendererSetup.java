@@ -14,5 +14,6 @@ public class RendererSetup {
     public static void init() {
         EntityRendererRegistry.register(EntitySetup.iceBall, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntitySetup.magicFireball, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntitySetup.thrownTorch, FlyingItemEntityRenderer::new);
     }
 }

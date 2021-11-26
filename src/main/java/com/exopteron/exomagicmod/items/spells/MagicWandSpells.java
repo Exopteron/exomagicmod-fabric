@@ -35,6 +35,7 @@ public class MagicWandSpells {
             this.registerSpell("ICEBALL", "Iceball", new IceballSpell());
             //this.registerSpell("TESTSPELL", new TestSpell());
             this.registerSpell("POISONCLOUD", "Poison Cloud", new PoisonCloudSpell());
+            this.registerSpell("THROWNTORCH", "Torch Thrower", new ThrownTorchSpell());
             /*             this.registerSpell("FIREBALL", new FireballSpell());
             this.registerSpell("ICEBALL", new IceballSpell());
             this.registerSpell("POISONCLOUD", new PoisonCloudSpell()); */

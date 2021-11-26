@@ -11,8 +11,11 @@ public class EntitySetup {
     public static final EntityType<EntityMagicFireball> magicFireball = EntityType.Builder.<EntityMagicFireball>create(EntityMagicFireball::new, SpawnGroup.MISC).build("magic_ball");
     
     public static final EntityType<EntityIceBall> iceBall = EntityType.Builder.<EntityIceBall>create(EntityIceBall::new, SpawnGroup.MISC).build("ice_ball");
+
+    public static final EntityType<EntityThrownTorch> thrownTorch = EntityType.Builder.<EntityThrownTorch>create(EntityThrownTorch::new, SpawnGroup.MISC).build("thrown_torch");
     public static void init() {
         Registry.register(Registry.ENTITY_TYPE, new Identifier(TestMod.MODID, "ice_ball"), iceBall);
         Registry.register(Registry.ENTITY_TYPE, new Identifier(TestMod.MODID, "magic_ball"), magicFireball);
+        Registry.register(Registry.ENTITY_TYPE, new Identifier(TestMod.MODID, "thrown_torch"), thrownTorch);
     }
 }
