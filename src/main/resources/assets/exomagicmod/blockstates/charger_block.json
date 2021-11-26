@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "exomagicmod:block/charger_block"
+        }
+    }
+}

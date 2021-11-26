@@ -21,7 +21,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 public class TooltippableBlockItem extends BlockItem {
-    private Text extraInfo;
+    private Text extraInfo = Text.of("");
     public TooltippableBlockItem(Block block, Settings settings) {
         super(block, settings);
         //TODO Auto-generated constructor stub

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
-import com.exopteron.exomagicmod.blocks.BlockSetup;
+import com.exopteron.exomagicmod.block.BlockSetup;
 import com.exopteron.exomagicmod.callbacks.CallbackSetup;
 import com.exopteron.exomagicmod.entities.EntitySetup;
 import com.exopteron.exomagicmod.items.ItemSetup;

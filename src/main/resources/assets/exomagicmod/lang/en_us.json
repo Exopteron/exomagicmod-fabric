@@ -10,5 +10,7 @@
     "itemGroup.exomagicmod.general": "Exo's Magic Mod",
     "category.exomagicmod.keybinds": "Exo's Magic Mod",
     "key.exomagicmod.switchspell": "Switch spell",
-    "key.exomagicmod.showtooltip": "Show advanced tooltip"
+    "key.exomagicmod.showtooltip": "Show advanced tooltip",
+    "item.exomagicmod.magicium_charging": "Charging Magicium Crystal",
+    "block.exomagicmod.charger_block": "Crystal Charger"
 }

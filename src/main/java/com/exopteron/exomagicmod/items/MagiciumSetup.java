@@ -23,13 +23,14 @@ public class MagiciumSetup {
     public static Item MAGICIUM_BLOCK_ITEM;
     public static Block MAGICIUM_ORE;
     public static Item MAGICIUM_ORE_ITEM;
+    public static final Item MAGICIUM_CHARGING_GEM = new ItemChargingMagicium(new Item.Settings().maxCount(1), Text.of("On your way to a shocking experience!"));
     public static void init() {
         Settings settings = new Item.Settings();
         settings.maxCount(64);
         settings.group(TestMod.CREATIVE_TAB);
         MAGICIUM_GEM = new TooltippableItem(settings).setExtraInfo(Text.of("A gem of pure magicium.").copy().formatted(Formatting.DARK_GRAY));
         Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_gem"), MAGICIUM_GEM);
-
+        Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_charging"), MAGICIUM_CHARGING_GEM);
         FabricBlockSettings blockSettings = FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK);
         MAGICIUM_BLOCK = new Block(blockSettings);
         Registry.register(Registry.BLOCK, new Identifier(TestMod.MODID, "magicium_block"), MAGICIUM_BLOCK);

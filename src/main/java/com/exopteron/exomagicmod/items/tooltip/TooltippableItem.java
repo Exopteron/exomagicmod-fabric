@@ -20,7 +20,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 public class TooltippableItem extends Item {
-    private Text extraInfo;
+    private Text extraInfo = Text.of("");
     public TooltippableItem(Settings settings) {
         super(settings);
     }
