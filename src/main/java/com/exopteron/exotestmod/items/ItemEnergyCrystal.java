@@ -29,6 +29,6 @@ public class ItemEnergyCrystal extends TooltippableItem {
     }
     @Override
     public Text extraTooltipData() {
-        return Text.of("Doesn't run on electricity!").copy().formatted(Formatting.DARK_GRAY);
+        return Text.of("Doesn't run on electricity!").copy().formatted(Formatting.GRAY);
     }
 }

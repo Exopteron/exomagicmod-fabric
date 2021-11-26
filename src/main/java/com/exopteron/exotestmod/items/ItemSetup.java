@@ -25,7 +25,7 @@ public class ItemSetup {
         settings = new Item.Settings();
         settings.fireproof();
         settings.group(TestMod.CREATIVE_TAB);
-        NETHERITE_STICK = new TooltippableItem(settings).setExtraInfo(Text.of("A stick. But out of netherite.").copy().formatted(Formatting.DARK_GRAY));
+        NETHERITE_STICK = new TooltippableItem(settings, Text.of("A stick. But out of netherite."));
         Registry.register(Registry.ITEM, "exotestmod:netherite_stick", NETHERITE_STICK);
     }   
 }

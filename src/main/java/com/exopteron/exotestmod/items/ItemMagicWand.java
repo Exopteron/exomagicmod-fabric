@@ -105,6 +105,6 @@ public class ItemMagicWand extends TooltippableItem {
     }
     @Override
     public Text extraTooltipData() {
-        return Text.of("It's a magic wand. It's pretty cool.").copy().formatted(Formatting.DARK_GRAY);
+        return Text.of("It's a magic wand. It's pretty cool.").copy().formatted(Formatting.GRAY);
     }
 }
