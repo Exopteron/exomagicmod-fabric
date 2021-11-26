@@ -8,11 +8,11 @@
     ],
     "key": {
         "m": {
-            "item": "exotestmod:magicium_gem"
+            "item": "exomagicmod:magicium_gem"
         }
     },
     "result": {
-        "item": "exotestmod:magicium_block",
+        "item": "exomagicmod:magicium_block",
         "count": 1
     }
 }

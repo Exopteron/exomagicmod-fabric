@@ -7,7 +7,7 @@
       "description": "Cast a spell.",
       "announce_to_chat": true
     },
-    "parent": "exotestmod:magic_wand",
+    "parent": "exomagicmod:magic_wand",
     "criteria": {
       "requirement": {
         "trigger": "minecraft:impossible"

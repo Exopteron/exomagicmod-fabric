@@ -1,13 +1,13 @@
 {
     "display": {
       "icon": {
-        "item": "exotestmod:magic_wand"
+        "item": "exomagicmod:magic_wand"
       },
       "title": "Reduce, Reuse, Recycle",
       "description": "Recraft a wand from a damaged crystal",
       "announce_to_chat": true
     },
-    "parent": "exotestmod:wand_break",
+    "parent": "exomagicmod:wand_break",
     "criteria": {
       "requirement": {
         "trigger": "minecraft:inventory_changed",
@@ -15,7 +15,7 @@
           "items": [
             {
               "items": [
-                "exotestmod:magic_wand"
+                "exomagicmod:magic_wand"
               ],
               "nbt": "{CrystalDamage:1}"
             }

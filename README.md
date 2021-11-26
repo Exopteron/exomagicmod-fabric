@@ -1,2 +1,2 @@
 # exomagicmod-fabric
-Basically a port of exomagicmod-forge to fabric WITHOUT USING MIXIN!!!
+Basically a port of exomagicmod-forge to fabric now using mixin ;((

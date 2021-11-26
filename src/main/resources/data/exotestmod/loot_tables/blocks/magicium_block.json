@@ -2,12 +2,12 @@
     "type": "minecraft:block",
     "pools": [
         {
-            "name": "exotestmod:magicium_block",
+            "name": "exomagicmod:magicium_block",
             "rolls": 1,
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "exotestmod:magicium_block"
+                    "name": "exomagicmod:magicium_block"
                 }
             ],
             "conditions": [

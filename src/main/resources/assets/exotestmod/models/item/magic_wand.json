@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures" : {
-        "layer0": "exotestmod:item/magic_wand"
+        "layer0": "exomagicmod:item/magic_wand"
     }
 }

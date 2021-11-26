@@ -1,14 +1,14 @@
 {
-    "item.exotestmod.magic_wand": "Exo's Magic Wand",
-    "item.exotestmod.netherite_stick": "Netherite Stick",
+    "item.exomagicmod.magic_wand": "Exo's Magic Wand",
+    "item.exomagicmod.netherite_stick": "Netherite Stick",
     "itemGroup.exoCreativeTab": "Exo's Mod Items",
-    "item.exotestmod.energy_crystal": "Energy Crystal",
-    "item.exotestmod.magicium_gem": "Magicium Gem",
-    "exotestmod.spellrebound": "Your spell seems to have rebounded!",
-    "block.exotestmod.magicium_block": "Block of Magicium",
-    "block.exotestmod.magicium_ore": "Magicium Ore",
-    "itemGroup.exotestmod.general": "Exo's Magic Mod",
-    "category.exotestmod.keybinds": "Exo's Magic Mod",
-    "key.exotestmod.switchspell": "Switch spell",
-    "key.exotestmod.showtooltip": "Show advanced tooltip"
+    "item.exomagicmod.energy_crystal": "Energy Crystal",
+    "item.exomagicmod.magicium_gem": "Magicium Gem",
+    "exomagicmod.spellrebound": "Your spell seems to have rebounded!",
+    "block.exomagicmod.magicium_block": "Block of Magicium",
+    "block.exomagicmod.magicium_ore": "Magicium Ore",
+    "itemGroup.exomagicmod.general": "Exo's Magic Mod",
+    "category.exomagicmod.keybinds": "Exo's Magic Mod",
+    "key.exomagicmod.switchspell": "Switch spell",
+    "key.exomagicmod.showtooltip": "Show advanced tooltip"
 }

@@ -1,13 +1,13 @@
 {
     "display": {
       "icon": {
-        "item": "exotestmod:energy_crystal"
+        "item": "exomagicmod:energy_crystal"
       },
       "title": "Magically Impressed",
       "description": "Obtain an Energy Crystal",
       "announce_to_chat": true
     },
-    "parent": "exotestmod:exotestmod",
+    "parent": "exomagicmod:exomagicmod",
     "criteria": {
       "requirement": {
         "trigger": "minecraft:inventory_changed",
@@ -15,7 +15,7 @@
           "items": [
             {
               "items": [
-                "exotestmod:energy_crystal"
+                "exomagicmod:energy_crystal"
               ]
             }
           ]

@@ -25,7 +25,7 @@
                     }
                   }
                 ],
-                "name": "exotestmod:magicium_ore"
+                "name": "exomagicmod:magicium_ore"
               },
               {
                 "type": "minecraft:item",
@@ -39,7 +39,7 @@
                     "function": "minecraft:explosion_decay"
                   }
                 ],
-                "name": "exotestmod:magicium_gem"
+                "name": "exomagicmod:magicium_gem"
               }
             ]
           }

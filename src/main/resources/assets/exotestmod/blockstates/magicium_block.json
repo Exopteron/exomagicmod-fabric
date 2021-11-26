@@ -1,7 +1,7 @@
 {
     "variants": {
         "": {
-            "model": "exotestmod:block/magicium_block"
+            "model": "exomagicmod:block/magicium_block"
         }
     }
 }

@@ -11,14 +11,14 @@
             "item": "minecraft:nether_star"
         },
         "r": {
-            "item": "exotestmod:magicium_gem"
+            "item": "exomagicmod:magicium_gem"
         },
         "d": {
             "item": "minecraft:diamond"
         }
     },
     "result": {
-        "item": "exotestmod:energy_crystal",
+        "item": "exomagicmod:energy_crystal",
         "count": 1
     }
 }

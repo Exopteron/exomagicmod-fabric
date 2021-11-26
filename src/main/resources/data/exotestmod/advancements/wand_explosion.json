@@ -8,7 +8,7 @@
       "announce_to_chat": true,
       "hidden": true
     },
-    "parent": "exotestmod:magic_wand",
+    "parent": "exomagicmod:magic_wand",
     "criteria": {
       "requirement": {
         "trigger": "minecraft:impossible"

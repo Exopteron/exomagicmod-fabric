@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "exotestmod",
+  "id": "exomagicmod",
   "version": "${version}",
 
   "name": "Exo's Magic Mod",
@@ -19,14 +19,14 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.exopteron.exotestmod.TestMod"
+      "com.exopteron.exomagicmod.TestMod"
     ],
     "client": [
-      "com.exopteron.exotestmod.client.ClientInitializer"
+      "com.exopteron.exomagicmod.client.ClientInitializer"
     ]
   },
   "mixins": [
-    "exotestmod.mixins.json"
+    "exomagicmod.mixins.json"
   ],
 
   "depends": {
