@@ -1,6 +1,7 @@
 package com.exopteron.exotestmod.items;
 
 import com.exopteron.exotestmod.TestMod;
+import com.exopteron.exotestmod.items.tooltip.TooltippableItem;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Settings;

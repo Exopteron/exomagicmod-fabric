@@ -9,6 +9,7 @@ import com.exopteron.exotestmod.Utils;
 import com.exopteron.exotestmod.items.spells.IWandSpell;
 import com.exopteron.exotestmod.items.spells.MagicWandSpells;
 import com.exopteron.exotestmod.items.spells.MagicWandSpells.SpellRegistry;
+import com.exopteron.exotestmod.items.tooltip.TooltippableItem;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.ItemEntity;

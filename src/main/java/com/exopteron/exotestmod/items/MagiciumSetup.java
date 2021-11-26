@@ -1,6 +1,8 @@
 package com.exopteron.exotestmod.items;
 
 import com.exopteron.exotestmod.TestMod;
+import com.exopteron.exotestmod.items.tooltip.TooltippableBlockItem;
+import com.exopteron.exotestmod.items.tooltip.TooltippableItem;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -34,7 +36,7 @@ public class MagiciumSetup {
         
         settings = new Item.Settings();
         settings.group(TestMod.CREATIVE_TAB);
-        MAGICIUM_BLOCK_ITEM = new BlockItem(MAGICIUM_BLOCK, settings);
+        MAGICIUM_BLOCK_ITEM = new TooltippableBlockItem(MAGICIUM_BLOCK, settings, Text.of("A block of pure magicium!"));
         Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_block"), MAGICIUM_BLOCK_ITEM);
 
         blockSettings = FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE);
@@ -43,7 +45,7 @@ public class MagiciumSetup {
 
         settings = new Item.Settings();
         settings.group(TestMod.CREATIVE_TAB);
-        MAGICIUM_ORE_ITEM = new BlockItem(MAGICIUM_ORE, settings);
+        MAGICIUM_ORE_ITEM = new TooltippableBlockItem(MAGICIUM_ORE, settings, Text.of("Magicium ore. can't think of anything else to say."));
         Registry.register(Registry.ITEM, new Identifier(TestMod.MODID, "magicium_ore"), MAGICIUM_ORE_ITEM);
     }
 }
