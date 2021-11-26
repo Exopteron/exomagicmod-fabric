@@ -44,7 +44,8 @@ public class EntityIceBall extends ThrownItemEntity {
         Entity entity = hitResult.getEntity();
         if (entity instanceof LivingEntity) {
             LivingEntity e = (LivingEntity) entity;
-            e.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 15 * 20, 255));
+            e.setFrozenTicks(15 * 20);
+            //e.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 15 * 20, 255));
             entity.damage(DamageSource.MAGIC, 6.0F);
         }
         //this.world.getBlockState(new BlockPos(0, 0, 0)).getBlock().toString();
