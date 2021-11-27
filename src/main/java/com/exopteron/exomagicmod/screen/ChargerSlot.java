@@ -15,4 +15,8 @@ public class ChargerSlot extends Slot {
     public boolean canInsert(ItemStack stack) {
         return BlockCharger.goodItem(stack);
     }
+    @Override
+    public int getMaxItemCount() {
+        return 1;
+    }
 }
