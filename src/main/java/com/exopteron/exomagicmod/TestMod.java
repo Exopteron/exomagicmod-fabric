@@ -31,6 +31,7 @@ import com.exopteron.exomagicmod.entities.EntitySetup;
 import com.exopteron.exomagicmod.items.ItemSetup;
 import com.exopteron.exomagicmod.network.NetworkSetup;
 import com.exopteron.exomagicmod.recipe.RecipeSetup;
+import com.exopteron.exomagicmod.screen.ScreenSetup;
 import com.exopteron.exomagicmod.world.OregenSetup;
 
 import org.apache.logging.log4j.LogManager;
@@ -56,6 +57,7 @@ public class TestMod implements ModInitializer {
 		CallbackSetup.init();
 		BlockSetup.init();
 		OregenSetup.init();
+		ScreenSetup.init();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.

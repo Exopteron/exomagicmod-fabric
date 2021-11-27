@@ -23,6 +23,7 @@ import com.exopteron.exomagicmod.client.keybind.KeybindSetup;
 import com.exopteron.exomagicmod.network.ExoNetworkManager;
 import com.exopteron.exomagicmod.network.IExoPacket;
 import com.exopteron.exomagicmod.network.Side;
+import com.exopteron.exomagicmod.screen.ScreenSetup;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -35,6 +36,7 @@ public class ClientInitializer implements ClientModInitializer {
         KeybindSetup.init();
         RendererSetup.init();
         CallbackSetupClient.init();
+        ScreenSetup.initClient();
         registerClientNetHandler();
     }
 

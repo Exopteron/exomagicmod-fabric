@@ -19,20 +19,27 @@ package com.exopteron.exomagicmod.block.entity;
 import com.exopteron.exomagicmod.block.BlockCharger;
 import com.exopteron.exomagicmod.items.ItemChargingMagicium;
 import com.exopteron.exomagicmod.items.ItemEnergyCrystal;
+import com.exopteron.exomagicmod.screen.ScreenHandlerCharger;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.text.Text;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class BlockEntityCharger extends BlockEntity implements SidedInventory {
+public class BlockEntityCharger extends LootableContainerBlockEntity implements SidedInventory {
     private int blockChargeDelay;
     public ItemStack itemStack = ItemStack.EMPTY;
     public BlockEntityCharger(BlockEntityType<?> type, BlockPos pos, BlockState state) {
@@ -131,5 +138,23 @@ public class BlockEntityCharger extends BlockEntity implements SidedInventory {
         } else {
             return false;
         }
+    }
+    @Override
+    protected DefaultedList<ItemStack> getInvStackList() {
+        DefaultedList<ItemStack> list = DefaultedList.of();
+        list.add(this.itemStack);
+        return list;
+    }
+    @Override
+    protected void setInvStackList(DefaultedList<ItemStack> var1) {
+        this.itemStack = var1.get(0);
+    }
+    @Override
+    protected Text getContainerName() {
+        return Text.of("Crystal Charger");
+    }
+    @Override
+    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
+        return new ScreenHandlerCharger(syncId, playerInventory, (Inventory) this);
     }
 }
