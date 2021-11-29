@@ -18,15 +18,19 @@ package com.exopteron.exomagicmod;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.mixin.networking.accessor.MinecraftClientAccessor;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import com.exopteron.exomagicmod.block.BlockSetup;
 import com.exopteron.exomagicmod.callbacks.CallbackSetup;
+import com.exopteron.exomagicmod.config.SpellConfig;
 import com.exopteron.exomagicmod.entities.EntitySetup;
 import com.exopteron.exomagicmod.items.ItemSetup;
 import com.exopteron.exomagicmod.network.NetworkSetup;
@@ -49,6 +53,7 @@ public class TestMod implements ModInitializer {
 	public static final ItemGroup CREATIVE_TAB = FabricItemGroupBuilder.build(new Identifier(MODID, "general"), () -> new ItemStack(ItemSetup.MAGIC_WAND));
 	@Override
 	public void onInitialize() {
+		SpellConfig.INSTANCE.entries.equals(4);
 		INSTANCE = this;
 		ItemSetup.run(this);
 		RecipeSetup.init();

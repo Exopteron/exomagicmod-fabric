@@ -28,6 +28,11 @@ import com.exopteron.exomagicmod.network.Side;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BlockStateRaycastContext;
+import net.minecraft.world.RaycastContext;
+import net.minecraft.world.RaycastContext.FluidHandling;
+import net.minecraft.world.RaycastContext.ShapeType;
 import oshi.util.tuples.Pair;
 
 public class PacketSpellRegistry implements IExoPacket {

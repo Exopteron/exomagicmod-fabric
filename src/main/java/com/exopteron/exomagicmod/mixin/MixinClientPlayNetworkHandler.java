@@ -21,15 +21,39 @@ import com.exopteron.exomagicmod.callbacks.ClientJoinGameCallback;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ExperienceOrbEntity;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.packet.s2c.play.ExperienceOrbSpawnS2CPacket;
 import net.minecraft.network.packet.s2c.play.GameJoinS2CPacket;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.Registry;
 
 @Mixin(ClientPlayNetworkHandler.class)
 public class MixinClientPlayNetworkHandler {
+/*     @Redirect(method = "onExperienceOrbSpawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/world/ClientWorld;addEntity(ILnet/minecraft/entity/Entity;)V"))
+    private void redirect(ClientWorld world, int id, Entity e) {
+        NbtCompound nbtCompound = new NbtCompound();
+        nbtCompound.putString("id", EntityType.getId(e.getType()).toString());
+        ExperienceOrbEntity entity22 = (ExperienceOrbEntity) EntityType.loadEntityWithPassengers(nbtCompound, world, entity -> {
+            entity.refreshPositionAndAngles(new BlockPos(e.getTrackedPosition()), entity.getYaw(), entity.getPitch());
+            return entity;
+        });
+        world.addEntity(id, entity22);
+    } */
     @Inject(method = "onGameJoin", at = @At("TAIL"))
     public void onGameJoin(GameJoinS2CPacket packet, CallbackInfo c) {
+        MinecraftClient.getInstance().world.isThundering();
         ClientJoinGameCallback.EVENT.invoker().call();
     }
 }

@@ -16,9 +16,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 package com.exopteron.exomagicmod.callbacks;
 
+import com.exopteron.exomagicmod.commands.CommandsSetup;
 import com.exopteron.exomagicmod.network.ExoNetworkManager;
 import com.exopteron.exomagicmod.network.packet.PacketSpellRegistry;
 
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.server.ServerTask;
@@ -32,5 +34,8 @@ public class CallbackSetup {
             }));
             //ExoNetworkManager.INSTANCE.sendPacketToClient(PacketSpellRegistry.fromSpellRegistry(), newPlayer);
         }); */
+        CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+            CommandsSetup.init(dispatcher);
+        });
     }
 }

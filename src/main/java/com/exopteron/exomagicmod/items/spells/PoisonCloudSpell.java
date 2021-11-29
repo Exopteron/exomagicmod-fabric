@@ -27,11 +27,15 @@ import net.minecraft.world.World;
 
 public class PoisonCloudSpell implements IWandSpell {
     @Override
-    public int cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
+    public boolean cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
         PotionEntity potion = new PotionEntity(world, player);
         potion.setItem(PotionUtil.setPotion(new ItemStack(Items.LINGERING_POTION), Potions.POISON));
         potion.setProperties(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
         world.spawnEntity(potion);
+        return true;
+    }
+    @Override
+    public int getSpellCooldown() {
         return 25;
     }
 }

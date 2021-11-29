@@ -22,8 +22,8 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 public interface IWandSpell {
-    default int cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
-        return 0;
+    default boolean cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
+        return false;
     };
 
     default void castClient(World world, PlayerEntity player, Hand hand, ItemStack wand) {
@@ -39,7 +39,10 @@ public interface IWandSpell {
     default int getSpellBlockDurabilityCost() {
         return 1;
     };
-    default int useOnBlock(ItemUsageContext ctx) {
+    default int getSpellCooldown() {
+        return 1;
+    }
+    default boolean useOnBlock(ItemUsageContext ctx) {
         return cast(ctx.getWorld(), ctx.getPlayer(), ctx.getHand(), ctx.getStack());
     };
 }

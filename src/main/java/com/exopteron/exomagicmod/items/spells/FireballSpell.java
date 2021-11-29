@@ -28,12 +28,16 @@ import net.minecraft.world.explosion.Explosion.DestructionType;
 public class FireballSpell implements IWandSpell {
 
     @Override
-    public int cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
+    public boolean cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
         ItemStack i = player.getStackInHand(hand);
         //ItemMagicWand.damageWand(i, 1, player, hand);
         EntityMagicFireball snowball = new EntityMagicFireball(world, player);
         snowball.setProperties(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
         world.spawnEntity(snowball);
+        return true;
+    }
+    @Override
+    public int getSpellCooldown() {
         return 15;
     }
     @Override

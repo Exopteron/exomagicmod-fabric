@@ -33,9 +33,13 @@ import net.minecraft.world.explosion.Explosion.DestructionType;
 
 public class FlintSpell implements IWandSpell {
     @Override
-    public int useOnBlock(ItemUsageContext ctx) {
+    public boolean useOnBlock(ItemUsageContext ctx) {
         ctx.getStack().setDamage(ctx.getStack().getDamage() - 1);
         Items.FLINT_AND_STEEL.useOnBlock(ctx);
+        return true;
+    }
+    @Override
+    public int getSpellCooldown() {
         return 5;
     }
     @Override

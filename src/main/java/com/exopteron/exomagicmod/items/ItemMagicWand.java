@@ -23,6 +23,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import com.exopteron.exomagicmod.TestMod;
 import com.exopteron.exomagicmod.Utils;
+import com.exopteron.exomagicmod.config.SpellConfig;
+import com.exopteron.exomagicmod.config.SpellConfigEntry;
 import com.exopteron.exomagicmod.items.spells.IWandSpell;
 import com.exopteron.exomagicmod.items.spells.MagicWandSpells;
 import com.exopteron.exomagicmod.items.spells.MagicWandSpells.SpellRegistry;
@@ -76,16 +78,19 @@ public class ItemMagicWand extends TooltippableItem {
             if (s == null) {
                 return super.use(world, user, hand);
             }
+            SpellConfigEntry spellEntry = SpellConfig.INSTANCE.getEntry(spell);
             if (doRebound) {
                 Utils.awardAdvancement(new Identifier(TestMod.MODID, "wand_rebound"), (ServerPlayerEntity) user);
                 user.sendMessage(new TranslatableText("exomagicmod.spellrebound").formatted(Formatting.ITALIC).formatted(Formatting.GRAY), false);
-                damageWand(i, s.getSpellCastDurabilityCost(), user, hand);
+                damageWand(i, spellEntry.getSpellDurabCostCast(), user, hand);
                 s.rebound(world, user, hand, i);
             } else {
                 Utils.awardAdvancement(new Identifier(TestMod.MODID, "cast_spell"), (ServerPlayerEntity) user);
-                int cooldownTicks = s.cast(world, user, hand, i);
-                damageWand(i, s.getSpellCastDurabilityCost(), user, hand);
-                user.getItemCooldownManager().set(this, cooldownTicks);
+                boolean success = s.cast(world, user, hand, i);
+                if (success) {
+                    damageWand(i, spellEntry.getSpellDurabCostCast(), user, hand);
+                    user.getItemCooldownManager().set(this, spellEntry.getSpellCooldown());
+                }
             }
         } else {
             user.swingHand(hand);
@@ -141,18 +146,22 @@ public class ItemMagicWand extends TooltippableItem {
             if (s == null) {
                 return ActionResult.FAIL;
             }
+            SpellConfigEntry spellEntry = SpellConfig.INSTANCE.getEntry(spell);
             if (doRebound) {
                 Utils.awardAdvancement(new Identifier(TestMod.MODID, "wand_rebound"), (ServerPlayerEntity) user);
                 user.sendMessage(new TranslatableText("exomagicmod.spellrebound").formatted(Formatting.ITALIC).formatted(Formatting.GRAY), false);
-                damageWand(i, s.getSpellBlockDurabilityCost(), user, hand);
+                damageWand(i, spellEntry.getSpellDurabCostBlock(), user, hand);
                 s.rebound(world, user, hand, i);
                 return ActionResult.FAIL;
             } else {
                 Utils.awardAdvancement(new Identifier(TestMod.MODID, "cast_spell"), (ServerPlayerEntity) user);
-                int cooldownTicks = s.useOnBlock(context);
-                damageWand(i, s.getSpellBlockDurabilityCost(), user, hand);
-                user.getItemCooldownManager().set(this, cooldownTicks);
-                return ActionResult.SUCCESS;
+                boolean success = s.useOnBlock(context);
+                if (success) {
+                    damageWand(i, spellEntry.getSpellDurabCostBlock(), user, hand);
+                    user.getItemCooldownManager().set(this, spellEntry.getSpellCooldown());
+                    return ActionResult.SUCCESS;
+                }
+                return ActionResult.FAIL;
             }
         }
         return ActionResult.SUCCESS;

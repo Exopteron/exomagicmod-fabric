@@ -20,6 +20,7 @@ import com.exopteron.exomagicmod.TestMod;
 import com.exopteron.exomagicmod.block.entity.BlockEntityCharger;
 import com.exopteron.exomagicmod.block.entity.BlockEntitySetup;
 import com.exopteron.exomagicmod.items.MagiciumSetup;
+import com.exopteron.exomagicmod.screen.ScreenSetup;
 
 import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
@@ -83,6 +84,7 @@ public class BlockCharger extends BlockWithEntity {
         if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof BlockEntityCharger) {
+                //player.openHandledScreen(ScreenSetup.CHARGERSCREEN.create(syncId, playerInventory));
                 ContainerProviderRegistry.INSTANCE.openContainer(
                         new Identifier(TestMod.MODID, "screen_crystal_charger_block"), player,
                         buf -> buf.writeBlockPos(pos));
