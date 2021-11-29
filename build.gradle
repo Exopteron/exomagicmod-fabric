@@ -1,7 +1,10 @@
 plugins {
+	id 'com.github.johnrengelman.shadow' version '7.1.0'
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 }
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = JavaVersion.VERSION_16
 targetCompatibility = JavaVersion.VERSION_16
@@ -18,7 +21,9 @@ repositories {
 	// for more information about repositories.
 	mavenCentral()
 }
-
+configurations {
+	implementation.extendsFrom shadowExo
+}
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -27,7 +32,7 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	implementation 'com.moandjiezana.toml:toml4j:0.7.2'
+	shadowExo 'com.moandjiezana.toml:toml4j:0.7.2'
 }
 
 processResources {
@@ -56,6 +61,20 @@ jar {
 	}
 }
 
+shadowJar {
+    archiveClassifier = "all-dev"
+    configurations = [ project.configurations.shadowExo ]
+	dependencies {
+		exclude(dependency('com.google:*'))
+	}
+}
+
+//noinspection UnnecessaryQualifiedReference
+task("remapShadowJar", type: net.fabricmc.loom.task.RemapJarTask, dependsOn: shadowJar) {
+    input = shadowJar.archiveFile
+    remapAccessWidener = true
+}
+assemble.dependsOn(remapShadowJar)
 // configure the maven publication
 publishing {
 	publications {
