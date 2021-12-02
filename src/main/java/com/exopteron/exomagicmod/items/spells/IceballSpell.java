@@ -34,7 +34,7 @@ public class IceballSpell implements IWandSpell {
         ItemStack i = player.getStackInHand(hand);
         //ItemMagicWand.damageWand(i, 1, player, hand);
         EntityIceBall snowball = new EntityIceBall(world, player);
-        snowball.setProperties(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
+        snowball.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
         world.spawnEntity(snowball);
         return true;
     }

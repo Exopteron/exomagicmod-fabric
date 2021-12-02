@@ -32,7 +32,7 @@ public class ThrownTorchSpell implements IWandSpell {
     @Override
     public boolean cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
         EntityThrownTorch snowball = new EntityThrownTorch(world, player);
-        snowball.setProperties(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
+        snowball.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
         world.spawnEntity(snowball);
         return false;
     }

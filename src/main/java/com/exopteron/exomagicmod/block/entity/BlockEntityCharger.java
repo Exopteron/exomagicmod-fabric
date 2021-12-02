@@ -49,12 +49,11 @@ public class BlockEntityCharger extends LootableContainerBlockEntity implements 
         super(BlockEntitySetup.CHARGER_BLOCK_ENTITY, pos, state);
     }
     @Override
-    public NbtCompound writeNbt(NbtCompound tag) {
-        super.writeNbt(tag);
+    public void writeNbt(NbtCompound tag) {
         NbtCompound itemTag = new NbtCompound();
         this.itemStack.writeNbt(itemTag);
         tag.put("HeldItem", itemTag);
-        return tag;
+        super.writeNbt(tag);
     }
     @Override
     public void readNbt(NbtCompound tag) {

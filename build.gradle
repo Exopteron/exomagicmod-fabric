@@ -34,7 +34,9 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	shadowExo 'com.moandjiezana.toml:toml4j:0.7.2'
 }
-
+loom {
+	accessWidenerPath = file("src/main/resources/exomagicmod.accesswidener")
+}
 processResources {
 	inputs.property "version", project.version
 

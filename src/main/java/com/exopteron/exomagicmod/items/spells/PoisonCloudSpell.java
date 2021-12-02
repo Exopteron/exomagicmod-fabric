@@ -30,7 +30,7 @@ public class PoisonCloudSpell implements IWandSpell {
     public boolean cast(World world, PlayerEntity player, Hand hand, ItemStack wand) {
         PotionEntity potion = new PotionEntity(world, player);
         potion.setItem(PotionUtil.setPotion(new ItemStack(Items.LINGERING_POTION), Potions.POISON));
-        potion.setProperties(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
+        potion.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
         world.spawnEntity(potion);
         return true;
     }

@@ -24,7 +24,6 @@ import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.server.ServerTask;
-import net.minecraft.world.TickScheduler;
 
 public class CallbackSetup {
     public static void init() {

@@ -1,0 +1,3 @@
+accessWidener   v1 named
+
+accessible method net/minecraft/world/gen/feature/OrePlacedFeatures modifiersWithCount (ILnet/minecraft/world/gen/decorator/PlacementModifier;)Ljava/util/List;
