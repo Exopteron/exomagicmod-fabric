@@ -5,10 +5,7 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
   ],
-  "client": [
-    "MixinKeybinding",
-    "MixinClientPlayNetworkHandler"
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

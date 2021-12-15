@@ -1,16 +1,3 @@
 {
-    "item.exomagicmod.magic_wand": "Exo's Magic Wand",
-    "item.exomagicmod.netherite_stick": "Netherite Stick",
-    "itemGroup.exoCreativeTab": "Exo's Mod Items",
-    "item.exomagicmod.energy_crystal": "Energy Crystal",
-    "item.exomagicmod.magicium_gem": "Magicium Gem",
-    "exomagicmod.spellrebound": "Your spell seems to have rebounded!",
-    "block.exomagicmod.magicium_block": "Block of Magicium",
-    "block.exomagicmod.magicium_ore": "Magicium Ore",
-    "itemGroup.exomagicmod.general": "Exo's Magic Mod",
-    "category.exomagicmod.keybinds": "Exo's Magic Mod",
-    "key.exomagicmod.switchspell": "Switch spell",
-    "key.exomagicmod.showtooltip": "Show advanced tooltip",
-    "item.exomagicmod.magicium_charging": "Charging Magicium Crystal",
-    "block.exomagicmod.crystal_charger_block": "Crystal Charger"
+    "wands.exomagicmod.wand_magicium": "Magicium Magic Wand"
 }

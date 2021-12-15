@@ -6,13 +6,18 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
-
+repositories {
+	maven {
+        name = "CottonMC"
+        url = "https://server.bbkr.space/artifactory/libs-release"
+    }
+}
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -32,7 +37,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	shadowExo 'com.moandjiezana.toml:toml4j:0.7.2'
+	modImplementation include("io.github.cottonmc:LibGui:5.1.0+1.18")
+	modImplementation include(files("libs/exoepiclib-0.1.0.jar"))
 }
 loom {
 	accessWidenerPath = file("src/main/resources/exomagicmod.accesswidener")
@@ -47,7 +53,7 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	// Minecraft 1.17 (21w19a) upwards uses Java 16.
-	it.options.release = 16
+	it.options.release = 17
 }
 
 java {

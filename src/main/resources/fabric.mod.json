@@ -19,10 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.exopteron.exomagicmod.TestMod"
+      "com.exopteron.exomagicmod.ExoMagicMod"
     ],
     "client": [
-      "com.exopteron.exomagicmod.client.ClientInitializer"
+      "com.exopteron.exomagicmod.client.ClientSetup"
     ]
   },
   "mixins": [
