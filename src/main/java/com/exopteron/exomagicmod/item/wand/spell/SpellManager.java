@@ -2,7 +2,7 @@ package com.exopteron.exomagicmod.item.wand.spell;
 
 import com.exopteron.exomagicmod.item.wand.MagicWand;
 import com.exopteron.exomagicmod.item.wand.spell.list.FireballSpell;
-import com.exopteron.exomagicmod.item.wand.spell.list.OtherSpell;
+import com.exopteron.exomagicmod.item.wand.spell.list.ElytraSpell;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -10,7 +10,7 @@ import net.minecraft.nbt.NbtCompound;
 public class SpellManager {
     public static enum Spells {
         FIREBALL(new FireballSpell()),
-        OTHERSPELL(new OtherSpell())
+        OTHERSPELL(new ElytraSpell())
         ;
         private WandSpell spell;
         private Spells(WandSpell spell) {

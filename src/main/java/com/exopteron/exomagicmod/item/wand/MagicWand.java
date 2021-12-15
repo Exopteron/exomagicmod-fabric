@@ -42,11 +42,29 @@ public class MagicWand extends Item {
         // TODO Auto-generated method stub
         return getName();
     }
+    public int getManaGenTicks() {
+        return this.crystal.getManaGenTicks();
+    }
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (getCooldown(stack) < this.getManaGenTicks()) {
+            setCooldown(stack, getCooldown(stack) + 1);
+            return;
+        } else {
+            setCooldown(stack, 0);
+        }
         if (this.getMana(stack) < maxMana()) {
             setMana(stack, this.getMana(stack) + 1);
         }
+    }
+    public void setCooldown(ItemStack stack, int cooldown) {
+        NbtCompound tag = stack.getOrCreateNbt();
+        tag.putInt("CooldownNum", cooldown);
+        stack.setNbt(tag);
+    }
+    public int getCooldown(ItemStack stack) {
+        NbtCompound tag = stack.getOrCreateNbt();
+        return tag.getInt("CooldownNum");
     }
     @Override
     public Text getName() {
@@ -71,8 +89,8 @@ public class MagicWand extends Item {
     }
 
     public int maxMana() {
-        return 500;
-    };
+        return this.crystal.getMaxMana();
+    }
 
     public int getMana(ItemStack i) {
         NbtCompound tag = i.getOrCreateNbt();
